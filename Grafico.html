@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico</title>
+</head>
+
+<body>
+    <div style="display: flex;">
+
+        <div>
+            <canvas id="myChartline" style="position: relative; width:50vw; height:50vh;"></canvas>
+        </div>
+
+        <div>
+            <canvas id="myChartbar" style="position: relative; width:50vw; height:50vh;"></canvas>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const lina = document.getElementById('myChartline');
+    const barzo = document.getElementById('myChartbar');
+
+    new Chart(lina, {
+        type: 'line',
+        data: {
+            labels: ['13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+            datasets: [{
+                label: 'temperatura',
+                data: [35, 29, 28, 25, 22, 27],
+                borderWidth: 1,
+                backgroundColor: 'rgb(255, 70, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+
+            },
+            {
+                label: 'umidade',
+                data: [85, 82, 80, 65, 70, 83],
+                borderWidth: 1,
+                backgroundColor: 'rgb(0, 0, 100)',
+                borderColor: 'rgb(0, 200, 100)',
+            },
+
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(barzo, {
+        type: 'bar',
+        data: {
+            labels: ['maio', 'junho', 'Julho', 'Agosto', 'setembro', 'outubro'],
+            datasets: [{
+                label: 'Umidade',
+                data: [25, 19, 30, 40, 20, 18],
+                borderWidth: 1
+            },
+            {
+                label: 'Temperatura',
+                data: [90, 70, 95, 100, 60, 82],
+                borderWidth: 1
+            }
+
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
